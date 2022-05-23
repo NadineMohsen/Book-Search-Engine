@@ -18,18 +18,18 @@ const resolvers = {
            const token = signToken(user);
            return {user,token}
        },
-//        login: async(parent, {email, password}) => {
-//            const user = await User.findOne({email});
-//            if(!user){
-//             throw new AuthenticationError('Incorrect email or password');
-//            }
-//            const checkPassword = await user.isCorrectPassword(password);
-//            if(!checkPassword) {
-//             throw new AuthenticationError('Incorrect email or password');
-//            }
-//            const token = signToken(user);
-//            return(user,token)
-//        },
+       login: async(parent, {email, password}) => {
+           const user = await User.findOne({email});
+           if(!user){
+            throw new AuthenticationError('Incorrect email or password');
+           }
+           const checkPassword = await user.isCorrectPassword(password);
+           if(!checkPassword) {
+            throw new AuthenticationError('Incorrect email or password');
+           }
+           const token = signToken(user);
+           return(user,token)
+       },
 //        saveBook: async(parent, {newBook}, context) => {
 //            if(context.user){
 //                const updatedUser = await User.findByIdAndUpdate(
